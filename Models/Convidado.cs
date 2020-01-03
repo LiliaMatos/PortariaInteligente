@@ -21,19 +21,25 @@ namespace PortariaInteligente.Models
         [Display(Name = "Celular")]
         [DataType(DataType.PhoneNumber)]
         public string celConvidado { get; set; }
-        //Adicionar um campo tipo docto, onde vai constar os possíveis tipos de doctos
-        public int tipoDoctoConvidadoId { get; set; }
 
         [Display(Name = "Tipo do documento com foto")]
         [Required]
-        public TipoDocto  tipoDocto { get; set; }
+        public string  tipoDocto { get; set; }
 
         [Display(Name = "Número do documento")]
         [Required]
         public string  numeroDoctoConvidado { get; set; }
-        public int carroId { get; set; }
 
-        [Display(Name = "Carro")]
-        public Carro carro { get; set; }
+        [Display(Name = "Placa do carro")]
+        public string placaCarro { get; set; }
+
+        [Display(Name = "Marca")]
+        public string marcaCarro { get; set; }
+
+        [Display(Name = "Modelo")]
+        public string modeloCarro { get; set; }
+
+        [Display(Name = "Cor")]
+        public string corCarro { get; set; }
     }
 }

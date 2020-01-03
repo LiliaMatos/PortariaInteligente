@@ -22,7 +22,22 @@
                 @Html.DisplayNameFor(model => model.celConvidado)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.tipoDocto)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.numeroDoctoConvidado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.placaCarro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.marcaCarro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modeloCarro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.corCarro)
             </th>
             <th></th>
         </tr>
@@ -40,7 +55,22 @@
                 @Html.DisplayFor(modelItem => item.celConvidado)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.tipoDocto)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.numeroDoctoConvidado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.placaCarro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marcaCarro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modeloCarro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.corCarro)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ConvidadoId">Edit</a> |

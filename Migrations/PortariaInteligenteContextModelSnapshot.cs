@@ -52,31 +52,6 @@ namespace PortariaInteligente.Migrations
                     b.ToTable("Anfitriaos");
                 });
 
-            modelBuilder.Entity("PortariaInteligente.Models.Carro", b =>
-                {
-                    b.Property<int>("CarroId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("corCarro")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("marcaCarro")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("modeloCarro")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("placaCarro")
-                        .HasColumnType("nvarchar(7)")
-                        .HasMaxLength(7);
-
-                    b.HasKey("CarroId");
-
-                    b.ToTable("Carros");
-                });
-
             modelBuilder.Entity("PortariaInteligente.Models.Convidado", b =>
                 {
                     b.Property<int>("ConvidadoId")
@@ -84,14 +59,20 @@ namespace PortariaInteligente.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("carroId")
-                        .HasColumnType("int");
-
                     b.Property<string>("celConvidado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("corCarro")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("emailConvidado")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("marcaCarro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("modeloCarro")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nomeConvidado")
@@ -102,17 +83,14 @@ namespace PortariaInteligente.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("tipoDoctoConvidadoId")
-                        .HasColumnType("int");
+                    b.Property<string>("placaCarro")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("tipoDoctoId")
-                        .HasColumnType("int");
+                    b.Property<string>("tipoDocto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ConvidadoId");
-
-                    b.HasIndex("carroId");
-
-                    b.HasIndex("tipoDoctoId");
 
                     b.ToTable("Convidados");
                 });
@@ -168,37 +146,6 @@ namespace PortariaInteligente.Migrations
                     b.HasIndex("AnfitriaoId");
 
                     b.ToTable("Eventos");
-                });
-
-            modelBuilder.Entity("PortariaInteligente.Models.TipoDocto", b =>
-                {
-                    b.Property<int>("tipoDoctoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("nomeDocto")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("tipoDoctoId");
-
-                    b.ToTable("TipoDoctos");
-                });
-
-            modelBuilder.Entity("PortariaInteligente.Models.Convidado", b =>
-                {
-                    b.HasOne("PortariaInteligente.Models.Carro", "carro")
-                        .WithMany()
-                        .HasForeignKey("carroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PortariaInteligente.Models.TipoDocto", "tipoDocto")
-                        .WithMany()
-                        .HasForeignKey("tipoDoctoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("PortariaInteligente.Models.ConvidadoEvento", b =>

@@ -26,8 +26,6 @@ namespace PortariaInteligente.Data
 
         public DbSet<Anfitriao> Anfitriaos { get; set; }
         public DbSet<Convidado> Convidados { get; set; }
-        public DbSet<Carro> Carros { get; set; }
-        public DbSet<TipoDocto> TipoDoctos { get; set; }
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<ConvidadoEvento> ConvidadosEventos { get; set; }
 

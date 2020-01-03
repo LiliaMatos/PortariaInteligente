@@ -46,13 +46,6 @@ namespace PortariaInteligente.Controllers
         // GET: Convidados/Create
         public IActionResult Create()
         {
-            ViewBag.Id = new SelectList
-                (
-                    new TipoDocto().ListaDoctos(),
-                    "tipoDoctoId",
-                    "nomeDocto"
-                );
-
             return View();
         }
 
@@ -61,18 +54,11 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,doctoConvidado")] Convidado convidado)
+        public async Task<IActionResult> Create([Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,tipoDocto,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(convidado);
-                ViewBag.Id = new SelectList
-                         (
-                             new TipoDocto().ListaDoctos(),
-                             "tipoDoctoId",
-                             "nomeDocto"
-                            // tipoDoctoId
-                         );
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -100,7 +86,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,doctoConvidado")] Convidado convidado)
+        public async Task<IActionResult> Edit(int id, [Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,tipoDocto,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
         {
             if (id != convidado.ConvidadoId)
             {
@@ -163,37 +149,5 @@ namespace PortariaInteligente.Controllers
         {
             return _context.Convidados.Any(e => e.ConvidadoId == id);
         }
-
-        public ActionResult CreateDropDownList()
-        {
-            // Criando uma ViewBag com uma lista de doctos.
-            // new SelectList significa retornar uma
-            // estrutura de DropDownList
-            ViewBag.Id = new SelectList
-                (
-                    new TipoDocto().ListaDoctos(),
-                    "tipoDoctoId",
-                    "nomeDocto"
-                );
-
-            return View();
-        }
-
-        public ActionResult PostDropDownList(string tipoDoctoId)
-        {
-            // O quarto parametro "tipoDoctoId" diz qual é o ID
-            // que deve vir pré-selecionado ao montar o DropDownList
-            ViewBag.Id = new SelectList
-                (
-                    new TipoDocto().ListaDoctos(),
-                    "tipoDoctoId",
-                    "nomeDocto",
-                    tipoDoctoId
-                );
-
-            return View();
-        }
-
-
     }
 }

@@ -1,0 +1,59 @@
+﻿@model PortariaInteligente.Models.Anfitriao
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Anfitriao</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AnfitriaoId" />
+            <div class="form-group">
+                <label asp-for="nomeAnfitriao" class="control-label"></label>
+                <input asp-for="nomeAnfitriao" class="form-control" />
+                <span asp-validation-for="nomeAnfitriao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="emailAnfitriao" class="control-label"></label>
+                <input asp-for="emailAnfitriao" class="form-control" />
+                <span asp-validation-for="emailAnfitriao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="celAnfitriao" class="control-label"></label>
+                <input asp-for="celAnfitriao" class="form-control" />
+                <span asp-validation-for="celAnfitriao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telAnfitriao" class="control-label"></label>
+                <input asp-for="telAnfitriao" class="form-control" />
+                <span asp-validation-for="telAnfitriao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="senhaAnfitriao" class="control-label"></label>
+                <input asp-for="senhaAnfitriao" class="form-control" />
+                <span asp-validation-for="senhaAnfitriao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tokenAnfitiao" class="control-label"></label>
+                <input asp-for="tokenAnfitiao" class="form-control" />
+                <span asp-validation-for="tokenAnfitiao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

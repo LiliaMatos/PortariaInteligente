@@ -1,0 +1,54 @@
+﻿@model PortariaInteligente.Models.Anfitriao
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Anfitriao</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nomeAnfitriao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nomeAnfitriao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.emailAnfitriao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.emailAnfitriao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.celAnfitriao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.celAnfitriao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.telAnfitriao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.telAnfitriao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.senhaAnfitriao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.senhaAnfitriao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tokenAnfitiao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tokenAnfitiao)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AnfitriaoId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
