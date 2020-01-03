@@ -1,0 +1,49 @@
+﻿@model PortariaInteligente.Models.Convidado
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Convidado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ConvidadoId" />
+            <div class="form-group">
+                <label asp-for="nomeConvidado" class="control-label"></label>
+                <input asp-for="nomeConvidado" class="form-control" />
+                <span asp-validation-for="nomeConvidado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="emailConvidado" class="control-label"></label>
+                <input asp-for="emailConvidado" class="form-control" />
+                <span asp-validation-for="emailConvidado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="celConvidado" class="control-label"></label>
+                <input asp-for="celConvidado" class="form-control" />
+                <span asp-validation-for="celConvidado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="numeroDoctoConvidado" class="control-label"></label>
+                <input asp-for="numeroDoctoConvidado" class="form-control" />
+                <span asp-validation-for="numeroDoctoConvidado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace PortariaInteligente.Models 
+{
+    public class Anfitriao
+    {
+        public int AnfitriaoId{ get; set; }
+        [Display(Name = "Nome")]
+        [Required]
+        public string nomeAnfitriao { get; set; }
+        [Display(Name = "E-mail")]
+        [DataType(DataType.EmailAddress)]
+        [Required]
+        public string emailAnfitriao { get; set; }
+        [Display(Name = "Celular")]
+        public string celAnfitriao { get; set; }
+        [Display(Name = "Fixo")]
+        [Required]
+        public string  telAnfitriao { get; set; }
+        [Display(Name = "Senha")]
+        public string senhaAnfitriao { get; set; }
+        public string tokenAnfitiao { get; set; }
+    }
+}
