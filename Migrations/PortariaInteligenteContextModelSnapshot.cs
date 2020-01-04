@@ -33,15 +33,16 @@ namespace PortariaInteligente.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("fixoAnfitriao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("nomeAnfitriao")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
 
                     b.Property<string>("senhaAnfitriao")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("telAnfitriao")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("tokenAnfitiao")
@@ -49,7 +50,7 @@ namespace PortariaInteligente.Migrations
 
                     b.HasKey("AnfitriaoId");
 
-                    b.ToTable("Anfitriaos");
+                    b.ToTable("Anfitrioes");
                 });
 
             modelBuilder.Entity("PortariaInteligente.Models.Convidado", b =>
@@ -58,6 +59,9 @@ namespace PortariaInteligente.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DocumentoId")
+                        .HasColumnType("int");
 
                     b.Property<string>("celConvidado")
                         .HasColumnType("nvarchar(max)");
@@ -86,11 +90,9 @@ namespace PortariaInteligente.Migrations
                     b.Property<string>("placaCarro")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("tipoDocto")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("ConvidadoId");
+
+                    b.HasIndex("DocumentoId");
 
                     b.ToTable("Convidados");
                 });
@@ -114,7 +116,23 @@ namespace PortariaInteligente.Migrations
 
                     b.HasIndex("EventoId");
 
-                    b.ToTable("ConvidadosEventos");
+                    b.ToTable("ConvidadoEventos");
+                });
+
+            modelBuilder.Entity("PortariaInteligente.Models.Documento", b =>
+                {
+                    b.Property<int>("DocumentoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("nomeDocumento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DocumentoId");
+
+                    b.ToTable("Documentos");
                 });
 
             modelBuilder.Entity("PortariaInteligente.Models.Evento", b =>
@@ -146,6 +164,15 @@ namespace PortariaInteligente.Migrations
                     b.HasIndex("AnfitriaoId");
 
                     b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("PortariaInteligente.Models.Convidado", b =>
+                {
+                    b.HasOne("PortariaInteligente.Models.Documento", "NomeDocumento")
+                        .WithMany()
+                        .HasForeignKey("DocumentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PortariaInteligente.Models.ConvidadoEvento", b =>

@@ -9,6 +9,16 @@
     <Compile Remove="Migrations\20191229004629_inicial.Designer.cs" />
     <Compile Remove="Migrations\20200102014140_pastaData.cs" />
     <Compile Remove="Migrations\20200102014140_pastaData.Designer.cs" />
+    <Compile Remove="Migrations\20200103132527_classeDocumento.cs" />
+    <Compile Remove="Migrations\20200103132527_classeDocumento.Designer.cs" />
+    <Compile Remove="Migrations\20200103132807_classeDocumento.cs" />
+    <Compile Remove="Migrations\20200103132807_classeDocumento.Designer.cs" />
+    <Compile Remove="Migrations\20200103133529_classeDocumento.cs" />
+    <Compile Remove="Migrations\20200103133529_classeDocumento.Designer.cs" />
+    <Compile Remove="Migrations\20200103195753_classeDocumento.cs" />
+    <Compile Remove="Migrations\20200103195753_classeDocumento.Designer.cs" />
+    <Compile Remove="Migrations\20200104100124_tableDocumentos.cs" />
+    <Compile Remove="Migrations\20200104100124_tableDocumentos.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

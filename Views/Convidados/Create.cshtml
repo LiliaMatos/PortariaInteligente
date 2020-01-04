@@ -28,9 +28,8 @@
                 <span asp-validation-for="celConvidado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="tipoDocto" class="control-label"></label>
-                <input asp-for="tipoDocto" class="form-control" />
-                <span asp-validation-for="tipoDocto" class="text-danger"></span>
+                <label asp-for="DocumentoId" class="control-label"></label>
+                <select asp-for="DocumentoId" class ="form-control" asp-items="ViewBag.DocumentoId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="numeroDoctoConvidado" class="control-label"></label>

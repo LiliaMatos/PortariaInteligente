@@ -24,10 +24,12 @@ namespace PortariaInteligente.Data
             optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["PortariaInteligenteDatabase"].ConnectionString);
         }*/
 
-        public DbSet<Anfitriao> Anfitriaos { get; set; }
+        public DbSet<Anfitriao> Anfitrioes { get; set; }
         public DbSet<Convidado> Convidados { get; set; }
+        public DbSet<Documento> Documentos { get; set; }
         public DbSet<Evento> Eventos { get; set; }
-        public DbSet<ConvidadoEvento> ConvidadosEventos { get; set; }
+        public DbSet<ConvidadoEvento> ConvidadoEventos { get; set; }
+
 
 
 

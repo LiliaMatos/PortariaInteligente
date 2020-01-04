@@ -48,7 +48,7 @@ namespace PortariaInteligente.Controllers
         // GET: Eventos/Create
         public IActionResult Create()
         {
-            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitriaos, "AnfitriaoId", "emailAnfitriao");
+            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitrioes, "AnfitriaoId", "emailAnfitriao");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace PortariaInteligente.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitriaos, "AnfitriaoId", "emailAnfitriao", evento.AnfitriaoId);
+            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitrioes, "AnfitriaoId", "emailAnfitriao", evento.AnfitriaoId);
             return View(evento);
         }
 
@@ -82,7 +82,7 @@ namespace PortariaInteligente.Controllers
             {
                 return NotFound();
             }
-            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitriaos, "AnfitriaoId", "emailAnfitriao", evento.AnfitriaoId);
+            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitrioes, "AnfitriaoId", "emailAnfitriao", evento.AnfitriaoId);
             return View(evento);
         }
 
@@ -118,7 +118,7 @@ namespace PortariaInteligente.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitriaos, "AnfitriaoId", "emailAnfitriao", evento.AnfitriaoId);
+            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitrioes, "AnfitriaoId", "emailAnfitriao", evento.AnfitriaoId);
             return View(evento);
         }
 

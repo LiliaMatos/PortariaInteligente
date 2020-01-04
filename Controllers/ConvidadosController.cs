@@ -22,7 +22,8 @@ namespace PortariaInteligente.Controllers
         // GET: Convidados
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Convidados.ToListAsync());
+            var portariaInteligenteContext = _context.Convidados.Include(c => c.NomeDocumento);
+            return View(await portariaInteligenteContext.ToListAsync());
         }
 
         // GET: Convidados/Details/5
@@ -34,6 +35,7 @@ namespace PortariaInteligente.Controllers
             }
 
             var convidado = await _context.Convidados
+                .Include(c => c.NomeDocumento)
                 .FirstOrDefaultAsync(m => m.ConvidadoId == id);
             if (convidado == null)
             {
@@ -46,6 +48,7 @@ namespace PortariaInteligente.Controllers
         // GET: Convidados/Create
         public IActionResult Create()
         {
+            ViewData["DocumentoId"] = new SelectList(_context.Documentos, "DocumentoId", "nomeDocumento");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,tipoDocto,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
+        public async Task<IActionResult> Create([Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,DocumentoId,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace PortariaInteligente.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["DocumentoId"] = new SelectList(_context.Documentos, "DocumentoId", "nomeDocumento", convidado.DocumentoId);
             return View(convidado);
         }
 
@@ -78,6 +82,7 @@ namespace PortariaInteligente.Controllers
             {
                 return NotFound();
             }
+            ViewData["DocumentoId"] = new SelectList(_context.Documentos, "DocumentoId", "nomeDocumento", convidado.DocumentoId);
             return View(convidado);
         }
 
@@ -86,7 +91,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,tipoDocto,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
+        public async Task<IActionResult> Edit(int id, [Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,DocumentoId,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
         {
             if (id != convidado.ConvidadoId)
             {
@@ -113,6 +118,7 @@ namespace PortariaInteligente.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["DocumentoId"] = new SelectList(_context.Documentos, "DocumentoId", "nomeDocumento", convidado.DocumentoId);
             return View(convidado);
         }
 
@@ -125,6 +131,7 @@ namespace PortariaInteligente.Controllers
             }
 
             var convidado = await _context.Convidados
+                .Include(c => c.NomeDocumento)
                 .FirstOrDefaultAsync(m => m.ConvidadoId == id);
             if (convidado == null)
             {

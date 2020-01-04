@@ -26,7 +26,7 @@ namespace PortariaInteligente.Models
         [Required]
         public string localEvento { get; set; }
 
-        [Display(Name = "Anfitrião/Responsável")]
+        [Display(Name = "Anfitrião")]
         public int AnfitriaoId { get; set; }
         public Anfitriao anfitriao { get; set; }
 

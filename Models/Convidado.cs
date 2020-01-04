@@ -10,7 +10,7 @@ namespace PortariaInteligente.Models
     {
         public int ConvidadoId { get; set; }
 
-        [Display(Name = "Nome"), Required ]
+        [Display(Name = "Nome"), Required]
         public string nomeConvidado { get; set; }
 
         [Display(Name = "E-mail")]
@@ -22,13 +22,14 @@ namespace PortariaInteligente.Models
         [DataType(DataType.PhoneNumber)]
         public string celConvidado { get; set; }
 
-        [Display(Name = "Tipo do documento com foto")]
-        [Required]
-        public string  tipoDocto { get; set; }
+        [Display(Name = "Documento")]
+        public int DocumentoId { get; set; }
 
-        [Display(Name = "Número do documento")]
+        public Documento NomeDocumento { get; set; }
+
+        [Display(Name = "Número")]
         [Required]
-        public string  numeroDoctoConvidado { get; set; }
+        public string numeroDoctoConvidado { get; set; }
 
         [Display(Name = "Placa do carro")]
         public string placaCarro { get; set; }

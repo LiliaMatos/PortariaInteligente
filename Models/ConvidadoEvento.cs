@@ -14,3 +14,4 @@ namespace PortariaInteligente.Models
         public Convidado convidado { get; set; }
     }
 }
+

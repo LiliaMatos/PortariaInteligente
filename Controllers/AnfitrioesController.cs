@@ -22,7 +22,7 @@ namespace PortariaInteligente.Controllers
         // GET: Anfitrioes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Anfitriaos.ToListAsync());
+            return View(await _context.Anfitrioes.ToListAsync());
         }
 
         // GET: Anfitrioes/Details/5
@@ -33,7 +33,7 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var anfitriao = await _context.Anfitriaos
+            var anfitriao = await _context.Anfitrioes
                 .FirstOrDefaultAsync(m => m.AnfitriaoId == id);
             if (anfitriao == null)
             {
@@ -54,7 +54,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AnfitriaoId,nomeAnfitriao,emailAnfitriao,celAnfitriao,telAnfitriao,senhaAnfitriao,tokenAnfitiao")] Anfitriao anfitriao)
+        public async Task<IActionResult> Create([Bind("AnfitriaoId,nomeAnfitriao,emailAnfitriao,celAnfitriao,fixoAnfitriao,senhaAnfitriao,tokenAnfitiao")] Anfitriao anfitriao)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var anfitriao = await _context.Anfitriaos.FindAsync(id);
+            var anfitriao = await _context.Anfitrioes.FindAsync(id);
             if (anfitriao == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AnfitriaoId,nomeAnfitriao,emailAnfitriao,celAnfitriao,telAnfitriao,senhaAnfitriao,tokenAnfitiao")] Anfitriao anfitriao)
+        public async Task<IActionResult> Edit(int id, [Bind("AnfitriaoId,nomeAnfitriao,emailAnfitriao,celAnfitriao,fixoAnfitriao,senhaAnfitriao,tokenAnfitiao")] Anfitriao anfitriao)
         {
             if (id != anfitriao.AnfitriaoId)
             {
@@ -124,7 +124,7 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var anfitriao = await _context.Anfitriaos
+            var anfitriao = await _context.Anfitrioes
                 .FirstOrDefaultAsync(m => m.AnfitriaoId == id);
             if (anfitriao == null)
             {
@@ -139,15 +139,15 @@ namespace PortariaInteligente.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var anfitriao = await _context.Anfitriaos.FindAsync(id);
-            _context.Anfitriaos.Remove(anfitriao);
+            var anfitriao = await _context.Anfitrioes.FindAsync(id);
+            _context.Anfitrioes.Remove(anfitriao);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AnfitriaoExists(int id)
         {
-            return _context.Anfitriaos.Any(e => e.AnfitriaoId == id);
+            return _context.Anfitrioes.Any(e => e.AnfitriaoId == id);
         }
     }
 }
