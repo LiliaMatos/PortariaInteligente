@@ -158,11 +158,6 @@ C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Anfitrio
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Anfitrioes\Details.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Anfitrioes\Edit.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Anfitrioes\Index.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventoes\Create.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventoes\Delete.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventoes\Details.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventoes\Edit.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventoes\Index.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Documentos\Create.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Documentos\Delete.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Documentos\Details.cshtml.g.cs
@@ -178,3 +173,8 @@ C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Eventos\
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Eventos\Details.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Eventos\Edit.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Eventos\Index.cshtml.g.cs
+C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventos\Create.cshtml.g.cs
+C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventos\Delete.cshtml.g.cs
+C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventos\Details.cshtml.g.cs
+C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventos\Edit.cshtml.g.cs
+C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\ConvidadoEventos\Index.cshtml.g.cs

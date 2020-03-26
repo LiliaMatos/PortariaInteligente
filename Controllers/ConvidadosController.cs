@@ -20,10 +20,17 @@ namespace PortariaInteligente.Controllers
         }
 
         // GET: Convidados
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var portariaInteligenteContext = _context.Convidados.Include(c => c.NomeDocumento);
-            return View(await portariaInteligenteContext.ToListAsync());
+           // var portariaInteligenteContext = _context.Convidados.Include(c => c.NomeDocumento);
+            var convidados = from m in _context.Convidados
+                             select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                convidados = convidados.Where(s => s.nomeConvidado.Contains(searchString));
+            }
+            return View(await convidados .ToListAsync());           
         }
 
         // GET: Convidados/Details/5
@@ -57,7 +64,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,DocumentoId,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
+        public async Task<IActionResult> Create([Bind("ConvidadoId,nomeConvidado,empresaConvidado,emailConvidado,celConvidado,DocumentoId,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +98,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ConvidadoId,nomeConvidado,emailConvidado,celConvidado,DocumentoId,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
+        public async Task<IActionResult> Edit(int id, [Bind("ConvidadoId,nomeConvidado,empresaConvidado,emailConvidado,celConvidado,DocumentoId,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
         {
             if (id != convidado.ConvidadoId)
             {

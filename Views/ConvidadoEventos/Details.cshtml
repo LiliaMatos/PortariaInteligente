@@ -1,0 +1,30 @@
+﻿@model PortariaInteligente.Models.ConvidadoEvento
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Incluir Convidado</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.evento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.evento.nomeEvento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.convidado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.convidado.nomeConvidado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ConvidadoEventoId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

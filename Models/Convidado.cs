@@ -13,6 +13,9 @@ namespace PortariaInteligente.Models
         [Display(Name = "Nome"), Required]
         public string nomeConvidado { get; set; }
 
+        [Display(Name = "Empresa"), Required]
+        public string empresaConvidado { get; set; }
+        
         [Display(Name = "E-mail")]
         [DataType(DataType.EmailAddress)]
         [Required]

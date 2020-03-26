@@ -73,6 +73,10 @@ namespace PortariaInteligente.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("empresaConvidado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("marcaCarro")
                         .HasColumnType("nvarchar(max)");
 

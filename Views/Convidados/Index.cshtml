@@ -9,11 +9,20 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-controller="Convidados" asp-action="Index" >
+    <p>
+        Nome: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.nomeConvidado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empresaConvidado)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.emailConvidado)
@@ -48,6 +57,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.nomeConvidado)
             </td>
+            <th>
+                @Html.DisplayNameFor(model => model.empresaConvidado)
+            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.emailConvidado)
             </td>
