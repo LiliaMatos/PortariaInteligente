@@ -1,0 +1,42 @@
+﻿@model PortariaInteligente.Models.Visitado
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Anfitriao</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nomeVisitado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nomeVisitado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.emailVisitado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.emailVisitado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.celVisitado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.celVisitado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fixoVisitado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fixoVisitado)
+        </dd>
+      </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VisitadoId">Edit</a> |
+    <a asp-action="Index">Voltar para a lista</a>
+</div>

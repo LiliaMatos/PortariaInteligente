@@ -25,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.localEvento)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.anfitriao)
+                @Html.DisplayNameFor(model => model.visitado)
             </th>
             <th></th>
         </tr>
@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.localEvento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.anfitriao.emailAnfitriao)
+                @Html.DisplayFor(modelItem => item.visitado.nomeVisitado)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.EventoId">Editar</a> |

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using PortariaInteligente.Models;
 
 namespace PortariaInteligente.Controllers
 {
+    [Authorize]
     public class EventosController : Controller
     {
         private readonly PortariaInteligenteContext _context;
@@ -22,7 +24,7 @@ namespace PortariaInteligente.Controllers
         // GET: Eventos
         public async Task<IActionResult> Index()
         {
-            var portariaInteligenteContext = _context.Eventos.Include(e => e.anfitriao);
+            var portariaInteligenteContext = _context.Eventos.Include(e => e.visitado);
             return View(await portariaInteligenteContext.ToListAsync());
         }
 
@@ -35,7 +37,7 @@ namespace PortariaInteligente.Controllers
             }
 
             var evento = await _context.Eventos
-                .Include(e => e.anfitriao)
+                .Include(e => e.visitado)
                 .FirstOrDefaultAsync(m => m.EventoId == id);
             if (evento == null)
             {
@@ -48,7 +50,7 @@ namespace PortariaInteligente.Controllers
         // GET: Eventos/Create
         public IActionResult Create()
         {
-            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitrioes, "AnfitriaoId", "emailAnfitriao");
+            ViewData["VisitadoId"] = new SelectList(_context.Visitados, "VisitadoId", "emailVisitado");
             return View();
         }
 
@@ -57,7 +59,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EventoId,nomeEvento,dataEvento,horaEvento,localEvento,AnfitriaoId")] Evento evento)
+        public async Task<IActionResult> Create([Bind("EventoId,nomeEvento,dataEvento,horaEvento,localEvento,VisitadoId")] Evento evento)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +67,7 @@ namespace PortariaInteligente.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitrioes, "AnfitriaoId", "emailAnfitriao", evento.AnfitriaoId);
+            ViewData["VisitadoId"] = new SelectList(_context.Visitados, "VisitadoId", "emailVisitado", evento.VisitadoId);
             return View(evento);
         }
 
@@ -82,7 +84,7 @@ namespace PortariaInteligente.Controllers
             {
                 return NotFound();
             }
-            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitrioes, "AnfitriaoId", "emailAnfitriao", evento.AnfitriaoId);
+            ViewData["VisitadoId"] = new SelectList(_context.Visitados, "VisitadoId", "emailVisitado", evento.VisitadoId);
             return View(evento);
         }
 
@@ -91,7 +93,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EventoId,nomeEvento,dataEvento,horaEvento,localEvento,AnfitriaoId")] Evento evento)
+        public async Task<IActionResult> Edit(int id, [Bind("EventoId,nomeEvento,dataEvento,horaEvento,localEvento,VisitadoId")] Evento evento)
         {
             if (id != evento.EventoId)
             {
@@ -118,7 +120,7 @@ namespace PortariaInteligente.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AnfitriaoId"] = new SelectList(_context.Anfitrioes, "AnfitriaoId", "emailAnfitriao", evento.AnfitriaoId);
+            ViewData["VisitadoId"] = new SelectList(_context.Visitados, "VisitadoId", "emailVisitado", evento.VisitadoId);
             return View(evento);
         }
 
@@ -131,7 +133,7 @@ namespace PortariaInteligente.Controllers
             }
 
             var evento = await _context.Eventos
-                .Include(e => e.anfitriao)
+                .Include(e => e.visitado)
                 .FirstOrDefaultAsync(m => m.EventoId == id);
             if (evento == null)
             {

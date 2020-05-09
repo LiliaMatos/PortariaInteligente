@@ -5,10 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Configuration;
 using PortariaInteligente.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace PortariaInteligente.Data
 {
-    public class PortariaInteligenteContext : DbContext
+    public class PortariaInteligenteContext : IdentityDbContext
     {
         public PortariaInteligenteContext(DbContextOptions<PortariaInteligenteContext> options) : base(options)
         {
@@ -19,12 +20,9 @@ namespace PortariaInteligente.Data
              optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PortariaInteligenteBD;Trusted_Connection=true;");
 
          }
-       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["PortariaInteligenteDatabase"].ConnectionString);
-        }*/
+ 
 
-        public DbSet<Anfitriao> Anfitrioes { get; set; }
+        public DbSet<Visitado> Visitados { get; set; }
         public DbSet<Convidado> Convidados { get; set; }
         public DbSet<Documento> Documentos { get; set; }
         public DbSet<Evento> Eventos { get; set; }

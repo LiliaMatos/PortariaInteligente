@@ -145,11 +145,6 @@ C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\Anfitr
 C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\Anfitrioes\Details.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\Anfitrioes\Edit.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\Anfitrioes\Index.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\ConvidadoEventos\Create.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\ConvidadoEventos\Delete.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\ConvidadoEventos\Details.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\ConvidadoEventos\Edit.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\ConvidadoEventos\Index.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\Convidados\Create.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\Convidados\Delete.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Release\netcoreapp3.0\Razor\Views\Convidados\Details.cshtml.g.cs

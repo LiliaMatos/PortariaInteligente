@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PortariaInteligente.Models.Visitado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nomeVisitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emailVisitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.celVisitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fixoVisitado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomeVisitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailVisitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celVisitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fixoVisitado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VisitadoId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.VisitadoId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.VisitadoId">Exluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
