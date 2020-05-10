@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace PortariaInteligente.Models 
 {
-    public class Visitado:IdentityUser
+    public class Visitado
+
     {
         public int VisitadoId { get; set; }
 
-        public int IdentityUserId { get; set; }
-        public IdentityUser IdentityUser { get; set; }
+        /*public int IdentityUserId { get; set; }
+        public IdentityUser IdentityUser { get; set; }*/
 
         [Display(Name = "Nome")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]

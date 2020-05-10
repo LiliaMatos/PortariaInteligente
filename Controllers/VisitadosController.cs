@@ -11,23 +11,23 @@ using PortariaInteligente.Models;
 
 namespace PortariaInteligente.Controllers
 {
-    [Authorize]
-    public class AnfitrioesController : Controller
+   // [Authorize]
+    public class VisitadosController : Controller
     {
         private readonly PortariaInteligenteContext _context;
 
-        public AnfitrioesController(PortariaInteligenteContext context)
+        public VisitadosController(PortariaInteligenteContext context)
         {
             _context = context;
         }
 
-        // GET: Anfitrioes
+        // GET: Visitados
         public async Task<IActionResult> Index()
         {
             return View(await _context.Visitados.ToListAsync());
         }
 
-        // GET: Anfitrioes/Details/5
+        // GET: Visitados/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,13 +45,13 @@ namespace PortariaInteligente.Controllers
             return View(visitado);
         }
 
-        // GET: Anfitrioes/Create
+        // GET: Visitados/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Anfitrioes/Create
+        // POST: Visitados/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,7 +67,7 @@ namespace PortariaInteligente.Controllers
             return View(visitado);
         }
 
-        // GET: Anfitrioes/Edit/5
+        // GET: Visitados/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,7 +83,7 @@ namespace PortariaInteligente.Controllers
             return View(visitado);
         }
 
-        // POST: Anfitrioes/Edit/5
+        // POST: Visitados/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -104,7 +104,7 @@ namespace PortariaInteligente.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AnfitriaoExists(visitado.VisitadoId))
+                    if (!VisitadoExists(visitado.VisitadoId))
                     {
                         return NotFound();
                     }
@@ -118,7 +118,7 @@ namespace PortariaInteligente.Controllers
             return View(visitado);
         }
 
-        // GET: Anfitrioes/Delete/5
+        // GET: Visitados/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,7 +136,7 @@ namespace PortariaInteligente.Controllers
             return View(visitado);
         }
 
-        // POST: Anfitrioes/Delete/5
+        // POST: Visitados/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -147,7 +147,7 @@ namespace PortariaInteligente.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AnfitriaoExists(int id)
+        private bool VisitadoExists(int id)
         {
             return _context.Visitados.Any(e => e.VisitadoId == id);
         }

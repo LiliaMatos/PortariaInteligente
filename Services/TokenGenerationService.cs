@@ -13,19 +13,19 @@ using System.Web.Providers.Entities;
 
 namespace PortariaInteligente.Services
 {
-    public class TokenGenerateService
+    public class TokenGenerationService
     {
-        private readonly PortariaInteligenteContext bd;
+        private readonly PortariaInteligenteContext _context;
 
-        public TokenGenerateService(PortariaInteligenteContext bd)
+        public TokenGenerationService(PortariaInteligenteContext context)
         {
-            this.bd = bd;
+            _context = context;
         }
         public Visitado Authenticate(string username, string password)
         {
           
            
-           var user = bd.Visitados.Where(x => x.nomeVisitado == username && 
+           var user = _context.Visitados.Where(x => x.nomeVisitado == username && 
             x.senhaVisitado == password).FirstOrDefault();
 
             if (user == null)

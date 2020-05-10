@@ -11,7 +11,7 @@ using PortariaInteligente.Models;
 
 namespace PortariaInteligente.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class EventosController : Controller
     {
         private readonly PortariaInteligenteContext _context;

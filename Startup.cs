@@ -89,10 +89,10 @@ namespace PortariaInteligente
             /*Definição de políticas globais, dizendo que TODO endpoint da nossa API requer autenticação.*/
             services.AddMvc(config =>
             {
-                var policy = new AuthorizationPolicyBuilder()
+                /*var policy = new AuthorizationPolicyBuilder()
                                 .RequireAuthenticatedUser()
                                 .Build();
-                config.Filters.Add(new AuthorizeFilter(policy));
+                config.Filters.Add(new AuthorizeFilter(policy));*/
                 config.EnableEndpointRouting = false;
             }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
@@ -100,11 +100,11 @@ namespace PortariaInteligente
             {
                 /*Para o meu caso dada a simplicidade da decisão, talvez o mais interessante, 
                  * fácil e manutenível fosse aplicar <<roles>>, ao invés de <<claims>>*/
-                options.AddPolicy("admin", policy => policy.RequireClaim("Portaria", "admin"));
-                options.AddPolicy("visitado", policy => policy.RequireClaim("Portaria", "visitado"));
-                options.AddPolicy("convidado", policy => policy.RequireClaim("Portaria", "convidado"));
-                options.AddPolicy("portaria", policy => policy.RequireClaim("Portaria", "portaria"));
-                options.AddPolicy("recepcao", policy => policy.RequireClaim("Portaria", "recepcao"));            
+                options.AddPolicy("Administrador", policy => policy.RequireClaim("Portaria", "Administrador"));
+                options.AddPolicy("Visitado", policy => policy.RequireClaim("Portaria", "Visitado"));
+                options.AddPolicy("Convidado", policy => policy.RequireClaim("Portaria", "Convidado"));
+                options.AddPolicy("Porteiro", policy => policy.RequireClaim("Portaria", "Porteiro"));
+                options.AddPolicy("Recepcionista", policy => policy.RequireClaim("Portaria", "Recepcionista"));            
             });
 
             //JWT: https://balta.io/blog/aspnet-core-autenticacao-autorizacao
