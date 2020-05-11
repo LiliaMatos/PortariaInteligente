@@ -1,4 +1,4 @@
-﻿@model PortariaInteligente.Models.Convidado
+﻿@model PortariaInteligente.Models.ExternalUser
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,56 +12,56 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ConvidadoId" />
+            <input type="hidden" asp-for="IdExternalUser" />
             <div class="form-group">
-                <label asp-for="nomeConvidado" class="control-label"></label>
-                <input asp-for="nomeConvidado" class="form-control" />
-                <span asp-validation-for="nomeConvidado" class="text-danger"></span>
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empresaConvidado" class="control-label"></label>
-                <input asp-for="empresaConvidado" class="form-control" />
-                <span asp-validation-for="empresaConvidado" class="text-danger"></span>
+                <label asp-for="IdCompany" class="control-label"></label>
+                <input asp-for="IdCompany" class="form-control" />
+                <span asp-validation-for="IdCompany" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="emailConvidado" class="control-label"></label>
-                <input asp-for="emailConvidado" class="form-control" />
-                <span asp-validation-for="emailConvidado" class="text-danger"></span>
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="celConvidado" class="control-label"></label>
-                <input asp-for="celConvidado" class="form-control" />
-                <span asp-validation-for="celConvidado" class="text-danger"></span>
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DocumentoId" class="control-label"></label>
-                <select asp-for="DocumentoId" class="form-control" asp-items="ViewBag.DocumentoId"></select>
-                <span asp-validation-for="DocumentoId" class="text-danger"></span>
+                <label asp-for="IdDocument" class="control-label"></label>
+                <select asp-for="IdDocument" class="form-control" asp-items="ViewBag.IdDocument"></select>
+                <span asp-validation-for="IdDocument" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="numeroDoctoConvidado" class="control-label"></label>
-                <input asp-for="numeroDoctoConvidado" class="form-control" />
-                <span asp-validation-for="numeroDoctoConvidado" class="text-danger"></span>
+                <label asp-for="NumberDoc" class="control-label"></label>
+                <input asp-for="NumberDoc" class="form-control" />
+                <span asp-validation-for="NumberDoc" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="placaCarro" class="control-label"></label>
-                <input asp-for="placaCarro" class="form-control" />
-                <span asp-validation-for="placaCarro" class="text-danger"></span>
+                <label asp-for="PlateCar" class="control-label"></label>
+                <input asp-for="PlateCar" class="form-control" />
+                <span asp-validation-for="PlateCar" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="marcaCarro" class="control-label"></label>
-                <input asp-for="marcaCarro" class="form-control" />
-                <span asp-validation-for="marcaCarro" class="text-danger"></span>
+                <label asp-for="BrandCar" class="control-label"></label>
+                <input asp-for="BrandCar" class="form-control" />
+                <span asp-validation-for="BrandCar" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="modeloCarro" class="control-label"></label>
-                <input asp-for="modeloCarro" class="form-control" />
-                <span asp-validation-for="modeloCarro" class="text-danger"></span>
+                <label asp-for="ModelCar" class="control-label"></label>
+                <input asp-for="ModelCar" class="form-control" />
+                <span asp-validation-for="ModelCar" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="corCarro" class="control-label"></label>
-                <input asp-for="corCarro" class="form-control" />
-                <span asp-validation-for="corCarro" class="text-danger"></span>
+                <label asp-for="ColorCar" class="control-label"></label>
+                <input asp-for="ColorCar" class="form-control" />
+                <span asp-validation-for="ColorCar" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -71,7 +71,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar para a Lista</a>
 </div>
 
 @section Scripts {

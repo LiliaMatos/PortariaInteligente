@@ -24,13 +24,12 @@ namespace PortariaInteligente.Controllers
         // GET: Convidados
         public async Task<IActionResult> Index(string searchString)
         {
-           // var portariaInteligenteContext = _context.Convidados.Include(c => c.NomeDocumento);
-            var convidados = from m in _context.Convidados
-                             select m;
+            var portariaInteligenteContext = _context.ExternalUsers.Include(c => c.IdDocument);
+            var convidados = from m in _context.ExternalUsers select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                convidados = convidados.Where(s => s.nomeConvidado.Contains(searchString));
+                convidados = convidados.Where(s => s.UserName.Contains(searchString));
             }
             return View(await convidados .ToListAsync());           
         }
@@ -43,9 +42,9 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var convidado = await _context.Convidados
-                .Include(c => c.NomeDocumento)
-                .FirstOrDefaultAsync(m => m.ConvidadoId == id);
+            var convidado = await _context.ExternalUsers 
+                .Include(c => c.IdDocument )
+                .FirstOrDefaultAsync(m => m.IdExternalUser == id);
             if (convidado == null)
             {
                 return NotFound();
@@ -57,7 +56,7 @@ namespace PortariaInteligente.Controllers
         // GET: Convidados/Create
         public IActionResult Create()
         {
-            ViewData["DocumentoId"] = new SelectList(_context.Documentos, "DocumentoId", "nomeDocumento");
+            ViewData["IdDocument"] = new SelectList(_context.Documents, "IdDocument", "NameDocument");
             return View();
         }
 
@@ -66,7 +65,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ConvidadoId,nomeConvidado,empresaConvidado,emailConvidado,celConvidado,DocumentoId,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
+        public async Task<IActionResult> Create([Bind("IdExternalUSer,UserName,IdCompany,Email,PhoneNumber,IdDocument,NumberDoc,PlateCar,BrandCar,ModelCar,ColorCar")] ExternalUser convidado)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +73,7 @@ namespace PortariaInteligente.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DocumentoId"] = new SelectList(_context.Documentos, "DocumentoId", "nomeDocumento", convidado.DocumentoId);
+            ViewData["DocumentoId"] = new SelectList(_context.Documents, "IdDocument", "NameDocument", convidado.IdDocument);
             return View(convidado);
         }
 
@@ -86,12 +85,12 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var convidado = await _context.Convidados.FindAsync(id);
+            var convidado = await _context.ExternalUsers .FindAsync(id);
             if (convidado == null)
             {
                 return NotFound();
             }
-            ViewData["DocumentoId"] = new SelectList(_context.Documentos, "DocumentoId", "nomeDocumento", convidado.DocumentoId);
+            ViewData["IdDocument"] = new SelectList(_context.Documents, "IdDocument", "NameDocument", convidado.IdDocument);
             return View(convidado);
         }
 
@@ -100,9 +99,9 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ConvidadoId,nomeConvidado,empresaConvidado,emailConvidado,celConvidado,DocumentoId,numeroDoctoConvidado,placaCarro,marcaCarro,modeloCarro,corCarro")] Convidado convidado)
+        public async Task<IActionResult> Edit(int id, [Bind("IdExternalUSer,UserName,IdCompany,Email,PhoneNumber,IdDocument,NumberDoc,PlateCar,BrandCar,ModelCar,ColorCar")] ExternalUser convidado)
         {
-            if (id != convidado.ConvidadoId)
+            if (id != convidado.IdExternalUser)
             {
                 return NotFound();
             }
@@ -116,7 +115,7 @@ namespace PortariaInteligente.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ConvidadoExists(convidado.ConvidadoId))
+                    if (!ConvidadoExists(convidado.IdExternalUser))
                     {
                         return NotFound();
                     }
@@ -127,7 +126,7 @@ namespace PortariaInteligente.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DocumentoId"] = new SelectList(_context.Documentos, "DocumentoId", "nomeDocumento", convidado.DocumentoId);
+            ViewData["IdDocument"] = new SelectList(_context.Documents, "IdDocument", "NameDocument", convidado.IdDocument);
             return View(convidado);
         }
 
@@ -139,9 +138,9 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var convidado = await _context.Convidados
-                .Include(c => c.NomeDocumento)
-                .FirstOrDefaultAsync(m => m.ConvidadoId == id);
+            var convidado = await _context.ExternalUsers 
+                .Include(c => c.IdDocument)
+                .FirstOrDefaultAsync(m => m.IdExternalUser == id);
             if (convidado == null)
             {
                 return NotFound();
@@ -155,15 +154,15 @@ namespace PortariaInteligente.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var convidado = await _context.Convidados.FindAsync(id);
-            _context.Convidados.Remove(convidado);
+            var convidado = await _context.ExternalUsers.FindAsync(id);
+            _context.ExternalUsers.Remove(convidado);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ConvidadoExists(int id)
         {
-            return _context.Convidados.Any(e => e.ConvidadoId == id);
+            return _context.ExternalUsers.Any(e => e.IdExternalUser== id);
         }
     }
 }

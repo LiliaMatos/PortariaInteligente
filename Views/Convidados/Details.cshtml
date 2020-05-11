@@ -1,4 +1,4 @@
-﻿@model PortariaInteligente.Models.Convidado
+﻿@model PortariaInteligente.Models.ExternalUser
 
 @{
     ViewData["Title"] = "Details";
@@ -11,65 +11,65 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.nomeConvidado)
+            @Html.DisplayNameFor(model => model.UserName)
         </dt>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.empresaConvidado)
+            @Html.DisplayNameFor(model => model.IdCompany)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.nomeConvidado)
+            @Html.DisplayFor(model => model.UserName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.emailConvidado)
+            @Html.DisplayNameFor(model => model.Email)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.emailConvidado)
+            @Html.DisplayFor(model => model.Email)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.celConvidado)
+            @Html.DisplayNameFor(model => model.PhoneNumber)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.celConvidado)
+            @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeDocumento)
+            @Html.DisplayNameFor(model => model.IdDocument)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NomeDocumento.nomeDocumento)
+            @Html.DisplayFor(model => model.IdDocument)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.numeroDoctoConvidado)
+            @Html.DisplayNameFor(model => model.NumberDoc)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.numeroDoctoConvidado)
+            @Html.DisplayFor(model => model.NumberDoc)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.placaCarro)
+            @Html.DisplayNameFor(model => model.PlateCar)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.placaCarro)
+            @Html.DisplayFor(model => model.PlateCar)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.marcaCarro)
+            @Html.DisplayNameFor(model => model.BrandCar)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.marcaCarro)
+            @Html.DisplayFor(model => model.BrandCar)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.modeloCarro)
+            @Html.DisplayNameFor(model => model.ModelCar)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.modeloCarro)
+            @Html.DisplayFor(model => model.ModelCar)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.corCarro)
+            @Html.DisplayNameFor(model => model.ColorCar)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.corCarro)
+            @Html.DisplayFor(model => model.ColorCar)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ConvidadoId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.IdExternalUser">Edit</a> |
+    <a asp-action="Index">Voltar para a Lista</a>
 </div>

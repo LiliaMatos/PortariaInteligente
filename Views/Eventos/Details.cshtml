@@ -1,4 +1,4 @@
-﻿@model PortariaInteligente.Models.Evento
+﻿@model PortariaInteligente.Models.Meeting
 
 @{
     ViewData["Title"] = "Details";
@@ -11,38 +11,38 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.nomeEvento)
+            @Html.DisplayNameFor(model => model.NameMeeting)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.nomeEvento)
+            @Html.DisplayFor(model => model.NameMeeting)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.dataEvento)
+            @Html.DisplayNameFor(model => model.DateMeeting)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.dataEvento)
+            @Html.DisplayFor(model => model.DateMeeting)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.horaEvento)
+            @Html.DisplayNameFor(model => model.TimeMeeting)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.horaEvento)
+            @Html.DisplayFor(model => model.TimeMeeting)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.localEvento)
+            @Html.DisplayNameFor(model => model.PlaceMeeting)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.localEvento)
+            @Html.DisplayFor(model => model.PlaceMeeting)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.visitado)
+            @Html.DisplayNameFor(model => model.IdInternalUser)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.visitado.nomeVisitado)
+            @Html.DisplayFor(model => model.IdInternalUser)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.EventoId">Editar</a> |
-    <a asp-action="Index">Voltar para a lista</a>
+    <a asp-action="Edit" asp-route-id="@Model.IdMeeting">Editar</a> |
+    <a asp-action="Index">Voltar para a Lista</a>
 </div>

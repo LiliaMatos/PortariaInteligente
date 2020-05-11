@@ -152,11 +152,6 @@ C:\source\repos\PortariaInteligente\bin\Debug\netcoreapp3.0\runtimes\unix\lib\ne
 C:\source\repos\PortariaInteligente\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\source\repos\PortariaInteligente\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\PortariaInteligente.csprojAssemblyReference.cache
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Documentos\Create.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Documentos\Delete.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Documentos\Details.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Documentos\Edit.cshtml.g.cs
-C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Documentos\Index.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Convidados\Create.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Convidados\Delete.cshtml.g.cs
 C:\source\repos\PortariaInteligente\obj\Debug\netcoreapp3.0\Razor\Views\Convidados\Details.cshtml.g.cs

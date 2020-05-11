@@ -24,7 +24,7 @@ namespace PortariaInteligente.Controllers
         // GET: Eventos
         public async Task<IActionResult> Index()
         {
-            var portariaInteligenteContext = _context.Eventos.Include(e => e.visitado);
+            var portariaInteligenteContext = _context.Meetings.Include(e => e.InternalUser);
             return View(await portariaInteligenteContext.ToListAsync());
         }
 
@@ -36,9 +36,9 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var evento = await _context.Eventos
-                .Include(e => e.visitado)
-                .FirstOrDefaultAsync(m => m.EventoId == id);
+            var evento = await _context.Meetings 
+                .Include(e => e.InternalUser)
+                .FirstOrDefaultAsync(m => m.IdMeeting == id);
             if (evento == null)
             {
                 return NotFound();
@@ -50,7 +50,7 @@ namespace PortariaInteligente.Controllers
         // GET: Eventos/Create
         public IActionResult Create()
         {
-            ViewData["VisitadoId"] = new SelectList(_context.Visitados, "VisitadoId", "emailVisitado");
+            ViewData["IdInternalUser"] = new SelectList(_context.InternalUsers, "IdInternalUser", "UserName");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EventoId,nomeEvento,dataEvento,horaEvento,localEvento,VisitadoId")] Evento evento)
+        public async Task<IActionResult> Create([Bind("IdMeeting,NameMeeting,DateMeeting, TimeMeeting,PlaceMeeting,IdInternalUser")] Meeting evento)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace PortariaInteligente.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["VisitadoId"] = new SelectList(_context.Visitados, "VisitadoId", "emailVisitado", evento.VisitadoId);
+            ViewData["IdInternalUser"] = new SelectList(_context.InternalUsers, "IdInternalUser", "UserName", evento.IdInternalUser);
             return View(evento);
         }
 
@@ -79,12 +79,12 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var evento = await _context.Eventos.FindAsync(id);
+            var evento = await _context.Meetings.FindAsync(id);
             if (evento == null)
             {
                 return NotFound();
             }
-            ViewData["VisitadoId"] = new SelectList(_context.Visitados, "VisitadoId", "emailVisitado", evento.VisitadoId);
+            ViewData["IdInternalUser"] = new SelectList(_context.InternalUsers, "IdInternalUser", "UserName", evento.IdInternalUser);
             return View(evento);
         }
 
@@ -93,9 +93,9 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EventoId,nomeEvento,dataEvento,horaEvento,localEvento,VisitadoId")] Evento evento)
+        public async Task<IActionResult> Edit(int id, [Bind("IdMeeting,NameMeeting,DateMeeting,TimeMeeting,PlaceMeeting,IdInternalUser")] Meeting  evento)
         {
-            if (id != evento.EventoId)
+            if (id != evento.IdMeeting)
             {
                 return NotFound();
             }
@@ -109,7 +109,7 @@ namespace PortariaInteligente.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventoExists(evento.EventoId))
+                    if (!EventoExists(evento.IdMeeting))
                     {
                         return NotFound();
                     }
@@ -120,7 +120,7 @@ namespace PortariaInteligente.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["VisitadoId"] = new SelectList(_context.Visitados, "VisitadoId", "emailVisitado", evento.VisitadoId);
+            ViewData["IdInternalUser"] = new SelectList(_context.InternalUsers, "IdInternalUser", "UserName", evento.IdInternalUser);
             return View(evento);
         }
 
@@ -132,9 +132,9 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var evento = await _context.Eventos
-                .Include(e => e.visitado)
-                .FirstOrDefaultAsync(m => m.EventoId == id);
+            var evento = await _context.Meetings
+                .Include(e => e.InternalUser)
+                .FirstOrDefaultAsync(m => m.IdMeeting == id);
             if (evento == null)
             {
                 return NotFound();
@@ -148,15 +148,15 @@ namespace PortariaInteligente.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var evento = await _context.Eventos.FindAsync(id);
-            _context.Eventos.Remove(evento);
+            var evento = await _context.Meetings.FindAsync(id);
+            _context.Meetings.Remove(evento);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EventoExists(int id)
         {
-            return _context.Eventos.Any(e => e.EventoId == id);
+            return _context.Meetings.Any(e => e.IdMeeting == id);
         }
     }
 }

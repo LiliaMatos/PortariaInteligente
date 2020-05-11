@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PortariaInteligente.Models.Visitado>
+﻿@model IEnumerable<PortariaInteligente.Models.InternalUser>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,16 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.nomeVisitado)
+                @Html.DisplayNameFor(model => model.UserName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.emailVisitado)
+                @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.celVisitado)
+                @Html.DisplayNameFor(model => model.PhoneNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.fixoVisitado)
+                @Html.DisplayNameFor(model => model.LandPhone)
             </th>
             <th></th>
         </tr>
@@ -31,21 +31,21 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.nomeVisitado)
+                @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.emailVisitado)
+                @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.celVisitado)
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.fixoVisitado)
+                @Html.DisplayFor(modelItem => item.LandPhone)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.VisitadoId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.VisitadoId">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.VisitadoId">Exluir</a>
+                <a asp-action="Edit" asp-route-id="@item.IdInternalUser">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdInternalUser">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdInternalUser">Exluir</a>
             </td>
         </tr>
 }

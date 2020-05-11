@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PortariaInteligente.Models.Evento>
+﻿@model IEnumerable<PortariaInteligente.Models.Meeting>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,19 +13,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.nomeEvento)
+                @Html.DisplayNameFor(model => model.NameMeeting)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.dataEvento)
+                @Html.DisplayNameFor(model => model.DateMeeting)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.horaEvento)
+                @Html.DisplayNameFor(model => model.TimeMeeting)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.localEvento)
+                @Html.DisplayNameFor(model => model.PlaceMeeting)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.visitado)
+                @Html.DisplayNameFor(model => model.IdInternalUser)
             </th>
             <th></th>
         </tr>
@@ -34,24 +34,24 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.nomeEvento)
+                @Html.DisplayFor(modelItem => item.NameMeeting)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.dataEvento)
+                @Html.DisplayFor(modelItem => item.DateMeeting)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.horaEvento)
+                @Html.DisplayFor(modelItem => item.TimeMeeting)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.localEvento)
+                @Html.DisplayFor(modelItem => item.PlaceMeeting)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.visitado.nomeVisitado)
+                @Html.DisplayFor(modelItem => item.InternalUser.UserName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.EventoId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.EventoId">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.EventoId">Excluir</a>
+                <a asp-action="Edit" asp-route-id="@item.IdMeeting">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMeeting">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMeeting">Excluir</a>
             </td>
         </tr>
 }

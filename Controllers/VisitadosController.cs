@@ -11,7 +11,7 @@ using PortariaInteligente.Models;
 
 namespace PortariaInteligente.Controllers
 {
-   // [Authorize]
+   //[Authorize]
     public class VisitadosController : Controller
     {
         private readonly PortariaInteligenteContext _context;
@@ -24,7 +24,7 @@ namespace PortariaInteligente.Controllers
         // GET: Visitados
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Visitados.ToListAsync());
+            return View(await _context.InternalUsers .ToListAsync());
         }
 
         // GET: Visitados/Details/5
@@ -35,8 +35,8 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var visitado = await _context.Visitados
-                .FirstOrDefaultAsync(m => m.VisitadoId == id);
+            var visitado = await _context.InternalUsers
+                .FirstOrDefaultAsync(m => m.IdInternalUser == id);
             if (visitado == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VisitadoId,nomeVisitado,emailVisitado,celVisitado,fixoVisitado,senhaVisitado,tokenVisitado")] Visitado visitado)
+        public async Task<IActionResult> Create([Bind("IdInternalUserId,UserName,Email,PhoneNumber,LandPhone")] InternalUser visitado)
         {
             if (ModelState.IsValid)
             {
@@ -75,7 +75,7 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var visitado = await _context.Visitados.FindAsync(id);
+            var visitado = await _context.InternalUsers.FindAsync(id);
             if (visitado == null)
             {
                 return NotFound();
@@ -88,9 +88,9 @@ namespace PortariaInteligente.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VisitadoId,nomeVisitado,emailVisitado,celVisitado,fixoVisitado,senhaVisitado,tokenVisitado")] Visitado visitado)
+        public async Task<IActionResult> Edit(int id, [Bind("IdInternalUserId,UserName,Email,PhoneNumber,LandPhone")] InternalUser visitado)
         {
-            if (id != visitado.VisitadoId)
+            if (id != visitado.IdInternalUser)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace PortariaInteligente.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VisitadoExists(visitado.VisitadoId))
+                    if (!VisitadoExists(visitado.IdInternalUser))
                     {
                         return NotFound();
                     }
@@ -126,8 +126,8 @@ namespace PortariaInteligente.Controllers
                 return NotFound();
             }
 
-            var visitado = await _context.Visitados
-                .FirstOrDefaultAsync(m => m.VisitadoId == id);
+            var visitado = await _context.InternalUsers
+                .FirstOrDefaultAsync(m => m.IdInternalUser == id);
             if (visitado == null)
             {
                 return NotFound();
@@ -141,15 +141,15 @@ namespace PortariaInteligente.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var visitado = await _context.Visitados.FindAsync(id);
-            _context.Visitados.Remove(visitado);
+            var visitado = await _context.InternalUsers.FindAsync(id);
+            _context.InternalUsers.Remove(visitado);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool VisitadoExists(int id)
         {
-            return _context.Visitados.Any(e => e.VisitadoId == id);
+            return _context.InternalUsers.Any(e => e.IdInternalUser == id);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿@model PortariaInteligente.Models.Visitado
-
+﻿@model PortariaInteligente.Models.InternalUser
 @{
     ViewData["Title"] = "Details";
 }
@@ -7,36 +6,36 @@
 <h1>Detalhes</h1>
 
 <div>
-    <h4>Anfitriao</h4>
+    <h4>Visitado</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.nomeVisitado)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.nomeVisitado)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.emailVisitado)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.emailVisitado)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.celVisitado)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.celVisitado)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber )
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fixoVisitado)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LandPhone)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fixoVisitado)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LandPhone)
         </dd>
-      </dl>
+    </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.VisitadoId">Edit</a> |
-    <a asp-action="Index">Voltar para a lista</a>
+    <a asp-action="Edit" asp-route-id="@Model.IdInternalUser">Edit</a> |
+    <a asp-action="Index">Voltar para a Lista</a>
 </div>

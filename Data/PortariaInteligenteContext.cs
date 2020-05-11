@@ -22,11 +22,13 @@ namespace PortariaInteligente.Data
          }
  
 
-        public DbSet<Visitado> Visitados { get; set; }
-        public DbSet<Convidado> Convidados { get; set; }
-        public DbSet<Documento> Documentos { get; set; }
-        public DbSet<Evento> Eventos { get; set; }
-        public DbSet<ConvidadoEvento> ConvidadoEventos { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExternalUser> ExternalUsers { get; set; }
+        public DbSet<InternalUser> InternalUsers { get; set; }
+        public DbSet<Document> Documents { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Meeting> Meetings { get; set; }
+        public DbSet<GuestMeeting> GuestMeetings { get; set; }
 
 
 

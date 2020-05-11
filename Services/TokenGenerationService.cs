@@ -21,12 +21,12 @@ namespace PortariaInteligente.Services
         {
             _context = context;
         }
-        public Visitado Authenticate(string username, string password)
+        public ApplicationUser Authenticate(string username, string password)
         {
           
            
-           var user = _context.Visitados.Where(x => x.nomeVisitado == username && 
-            x.senhaVisitado == password).FirstOrDefault();
+           var user = _context.ApplicationUsers.Where(x => x.UserName == username && 
+            x.PasswordHash  == password).FirstOrDefault();
 
             if (user == null)
                 return null;
@@ -37,16 +37,16 @@ namespace PortariaInteligente.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.nomeVisitado),
-                    new Claim("Portaria", user.Role)
+                    new Claim(ClaimTypes.Name, user.UserName ),
+                    new Claim("Portaria", user.JWTRole)
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            user.tokenVisitado = tokenHandler.WriteToken(token);
+            user.JWTToken = tokenHandler.WriteToken(token);
 
-            user.senhaVisitado = null;
+            user.PasswordHash  = null;
 
             return user;
         }
