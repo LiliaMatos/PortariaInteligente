@@ -5,41 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20191229004629_inicial.cs" />
-    <Compile Remove="Migrations\20191229004629_inicial.Designer.cs" />
-    <Compile Remove="Migrations\20200102014140_pastaData.cs" />
-    <Compile Remove="Migrations\20200102014140_pastaData.Designer.cs" />
-    <Compile Remove="Migrations\20200103132527_classeDocumento.cs" />
-    <Compile Remove="Migrations\20200103132527_classeDocumento.Designer.cs" />
-    <Compile Remove="Migrations\20200103132807_classeDocumento.cs" />
-    <Compile Remove="Migrations\20200103132807_classeDocumento.Designer.cs" />
-    <Compile Remove="Migrations\20200103133529_classeDocumento.cs" />
-    <Compile Remove="Migrations\20200103133529_classeDocumento.Designer.cs" />
-    <Compile Remove="Migrations\20200103195753_classeDocumento.cs" />
-    <Compile Remove="Migrations\20200103195753_classeDocumento.Designer.cs" />
-    <Compile Remove="Migrations\20200104100124_tableDocumentos.cs" />
-    <Compile Remove="Migrations\20200104100124_tableDocumentos.Designer.cs" />
-    <Compile Remove="Migrations\20200504094733_AddingVisitado.cs" />
-    <Compile Remove="Migrations\20200504094733_AddingVisitado.Designer.cs" />
-    <Compile Remove="Migrations\20200508180926_NovoVisitado2.cs" />
-    <Compile Remove="Migrations\20200508180926_NovoVisitado2.Designer.cs" />
+    <Compile Remove="Migrations\20201011175954_PrimeiraMigracao.cs" />
+    <Compile Remove="Migrations\20201011175954_PrimeiraMigracao.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.Providers.Core" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

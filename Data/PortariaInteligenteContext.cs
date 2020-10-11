@@ -1,15 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
 using PortariaInteligente.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace PortariaInteligente.Data
 {
-    public class PortariaInteligenteContext : IdentityDbContext
+    public class PortariaInteligenteContext : DbContext
     {
         public PortariaInteligenteContext(DbContextOptions<PortariaInteligenteContext> options) : base(options)
         {
@@ -17,19 +11,17 @@ namespace PortariaInteligente.Data
 
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
          {
-             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PortariaInteligenteBD;Trusted_Connection=true;");
-
          }
  
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<ExternalUser> ExternalUsers { get; set; }
-        public DbSet<InternalUser> InternalUsers { get; set; }
-        public DbSet<Document> Documents { get; set; }
-        public DbSet<Company> Companies { get; set; }
-        public DbSet<Meeting> Meetings { get; set; }
-        public DbSet<GuestMeeting> GuestMeetings { get; set; }
-
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Visitante> Visitantes { get; set; }
+        public DbSet<Visitado> Visitados { get; set; }
+        public DbSet<Documento> Documentos { get; set; }
+        public DbSet<Empresa> Empresas { get; set; }
+        public DbSet<Evento> Eventos { get; set; }
+        public DbSet<Convite> Convites { get; set; }
+        public DbSet<Papel> Papeis { get; set; }
 
 
 
